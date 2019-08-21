@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var colors = require("colors")
 var cheerio = require("cheerio");
 var axios = require("axios");
+var expressHandlebars = require("handlebars")
 
 var db = require("./models");
 
