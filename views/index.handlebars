@@ -11,8 +11,8 @@
         {{#each articles}}
         <div class = "card-panel">
             <h4>{{this.headline}}</h4>
-           
-            <a href={{this.url}} class= "waves-effect waves-light btn" id="btnSignUp">{{this.headline}}</a>
+            {{!-- <a href={{this.url}} class= "waves-effect waves-light btn" id="btnSignUp">{{this.headline}}</a> --}}
+             <a href = "/readArticle/{{this._id}}" class="waves-effect waves-light btn" id = "btnSignUp"> Read Article Here</a>
              <p>{{this.summary}}</p>
         </div>
         {{/each}}
