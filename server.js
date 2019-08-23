@@ -5,10 +5,8 @@ var PORT = process.env.PORT || 8080;
 
 // Initialize Express
 var app = express();
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 // Configure middleware
+var routes = require("./controller/controller");
 
 // Use morgan logger for logging requests
 // app.use(logger("dev"));
@@ -17,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
-
-var routes = require("./controller/controller");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 app.use(routes);
 

@@ -1,7 +1,4 @@
 var express = require("express");
-
-var mongoose = require("mongoose");
-var colors = require("colors")
 var cheerio = require("cheerio");
 var axios = require("axios");
 var router = express.Router();
