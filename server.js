@@ -1,6 +1,6 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var mongoose = require('mongoose');
 var PORT = process.env.PORT || 8080;
 
 // Initialize Express
@@ -22,7 +22,8 @@ var routes = require("./controller/controller");
 
 app.use(routes);
 
-
+var MONGODB_URL = process.env.MONGODB_URL || "mongodb://localhost/newsscrape";
+mongoose.connect(MONGODB_URL);
 
 // Start the server
 app.listen(PORT, function () {

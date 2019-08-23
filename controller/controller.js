@@ -13,7 +13,7 @@ var db = require("../models");
 //     res.render("index");
 // });
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/newsscrape", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/newsscrape", { useNewUrlParser: true });
 
 // Making a request via axios for reddit's "webdev" board. We are sure to use old.reddit due to changes in HTML structure for the new reddit. The page's Response is passed as our promise argument.
 router.get("/scrape", function (req, res) {
@@ -72,6 +72,11 @@ router.get("/scrape", function (req, res) {
         res.send("Scrape Complete")
     });
 })
+
+// BUILD ROUTES TO CLEAR AND SAVE ARTICLES
+// SIMILAR TO THE BELOW
+// WITHIN THE FUNCTION I'LL BE ABLE TO SCRAPE OR CLEAR
+
 
 // Route for getting all Articles from the db
 router.get("/", function (req, res) {

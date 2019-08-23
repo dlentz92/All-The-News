@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/public/style.css">
-    <link rel="shortcut icon" href="assets/img/news-icon.png"/>
+    <link rel="shortcut icon" href="assets/img/news-icon.png" />
 
     <script src="/server.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,9 +19,14 @@
 <body>
     {{>nav/navbar}}
     <main>
-    <div class="container">
-        {{{body}}}
-    </div>
+        {{!-- <div class="row">
+            <div class="grid-example col s12"><span class="flow-text"> --}}
+                <div class="container">
+                    {{{body}}}
+                </div>
+                {{!-- </span>
+            </div>
+        </div> --}}
     </main>
     {{>footer}}
 
