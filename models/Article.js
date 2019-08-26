@@ -29,13 +29,6 @@ var ArticleSchema = new Schema({
     ref: "Note"
   }
 });
-ArticleSchema.index(
-  {
-    url: 1,
-  },
-  {
-    unique: true
-  })
 
 // This creates our model from the above schema, using mongoose's model method
 var Article = mongoose.model("Article", ArticleSchema);
