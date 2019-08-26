@@ -5,13 +5,6 @@ var router = express.Router();
 
 var db = require("../models");
 
-
-// router.get("/", function (req, res) {
-//     res.render("index");
-// });
-// Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/newsscrape", { useNewUrlParser: true });
-
 // Making a request via axios for reddit's "webdev" board. We are sure to use old.reddit due to changes in HTML structure for the new reddit. The page's Response is passed as our promise argument.
 router.get("/scrape", function (req, res) {
     axios.get("https://www.nytimes.com/section/books").then(function (response) {
@@ -21,8 +14,6 @@ router.get("/scrape", function (req, res) {
         var $ = cheerio.load(response.data);
 
         // An empty array to save the data that we'll scrape
-        var results = [];
-
         // With cheerio, find each p-tag with the "title" class
         // (i: iterator. element: the current element)
         $("article").each(function (i, element) {
@@ -106,7 +97,7 @@ router.post("/comment/:id", function (req, res) {
         body: content
     };
 
-    var newComment = new Comment(commentobj);
+    var newComment = new Comment(commentObj);
 
     newComment.save(function (err, doc) {
         if (err) {
