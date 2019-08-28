@@ -21,7 +21,7 @@ app.set("view engine", "handlebars");
 app.use(routes);
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/newsscrape" ;
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 // Start the server
 app.listen(PORT, function () {

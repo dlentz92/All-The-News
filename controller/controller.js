@@ -85,6 +85,23 @@ router.get("/", function (req, res) {
         });
 });
 
+router.get("/articles", function (req, res) {
+    // Grab every document in the Articles collection
+    console.log("path root".red)
+    db.Article.find({})
+        .then(function (dbArticle) {
+            // If we were able to successfully find Articles, send them back to the client
+            var obj = {
+                articles: dbArticle
+            }
+            console.log("OBJ".blue, obj)
+            res.render("index", obj);
+        })
+        .catch(function (err) {
+            // If an error occurred, send it to the client
+            res.json(err);
+        });
+});
 
 // COMMENT PORTION
 router.post("/comment/:id", function (req, res) {
