@@ -8,7 +8,6 @@ var app = express();
 // Configure middleware
 var routes = require("./controller/controller");
 
-// Use morgan logger for logging requests
 // app.use(logger("dev"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
