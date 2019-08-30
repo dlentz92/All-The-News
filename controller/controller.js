@@ -5,10 +5,8 @@ var router = express.Router();
 
 var db = require("../models");
 
-
 router.get("/scrape", function (req, res) {
     axios.get("https://www.nytimes.com/section/books").then(function (response) {
-        //console.log(response.data)
 
         var $ = cheerio.load(response.data);
 
@@ -16,9 +14,7 @@ router.get("/scrape", function (req, res) {
         // (i: iterator. element: the current element)
         $("article").each(function (i, element) {
 
-            //var headline = $(element).find(".css-171kk9w").children().text();
             var headline = $(element).find("h2").children().text();
-
 
             var summary = $(element).find("p").text();
 
@@ -44,9 +40,8 @@ router.get("/scrape", function (req, res) {
                     console.log("error".red, err)
                     res.json(err);
                 });
-
         });
-        // Save these results in an object that we'll push into the results array we defined earlier
+
         // Log the results once you've looped through each of the elements found with cheerio
         //console.log(results);
         res.send("Scrape Complete")
@@ -56,7 +51,6 @@ router.get("/scrape", function (req, res) {
 // BUILD ROUTES TO CLEAR AND SAVE ARTICLES
 // SIMILAR TO THE BELOW
 // WITHIN THE FUNCTION I'LL BE ABLE TO SCRAPE OR CLEAR
-
 
 // Route for getting all Articles from the db
 router.get("/", function (req, res) {

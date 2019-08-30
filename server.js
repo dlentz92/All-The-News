@@ -8,7 +8,7 @@ var app = express();
 // Configure middleware
 var routes = require("./controller/controller");
 
-// app.use(logger("dev"));
+
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
